@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务器指令查询</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mc-bg"></div>
+
+    <!-- 导航栏 -->
+    <nav class="mc-nav">
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="小镇列表.html">小镇列表</a></li>
+            <li><a href="commands.html" class="active">指令查询</a></li>
+            <li><a href="称号定制.html">称号定制</a></li>
+            <li><a href="游玩手册.html">游玩手册</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- 页面标题 -->
+        <header class="page-header fade-up fade-up-1">
+            <div class="subtitle">
+                <span>⌨️</span>
+                <span>SERVER COMMANDS</span>
+                <span>⌨️</span>
+            </div>
+            <h1>服务器指令查询</h1>
+            <p class="desc">点击指令即可复制到剪贴板</p>
+            <div class="pixel-divider"></div>
+        </header>
+
+        <!-- 基础指令 -->
+        <section class="mc-card fade-up fade-up-2">
+            <h2>📌 基础指令</h2>
+            <div class="command-item" onclick="copyCommand('/back')">
+                <span class="cmd">/back</span>
+                <span class="desc">回到死亡点或上一个传送点</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+            <div class="command-item" onclick="copyCommand('/hat')">
+                <span class="cmd">/hat</span>
+                <span class="desc">手中物品戴头上</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+            <div class="command-item" onclick="copyCommand('/rtp')">
+                <span class="cmd">/rtp</span>
+                <span class="desc">随机传送</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+            <div class="command-item" onclick="copyCommand('/sethome')">
+                <span class="cmd">/sethome</span>
+                <span class="desc">设置家</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+            <div class="command-item" onclick="copyCommand('/dethome')">
+                <span class="cmd">/dethome</span>
+                <span class="desc">删除家</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+            <div class="command-item" onclick="copyCommand('/home')">
+                <span class="cmd">/home</span>
+                <span class="desc">回家</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+            <div class="command-item" onclick="copyCommand('/suicide')">
+                <span class="cmd">/suicide</span>
+                <span class="desc">自杀</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+        </section>
+
+        <!-- 功能指令 -->
+        <section class="mc-card fade-up fade-up-3">
+            <h2>⚙️ 功能指令</h2>
+            <div class="command-item" onclick="copyCommand('/mine')">
+                <span class="cmd">/mine</span>
+                <span class="desc">挖矿模式</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+            <div class="command-item" onclick="copyCommand('/tpaall')">
+                <span class="cmd">/tpaall</span>
+                <span class="desc">请求全服玩家传送到你</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+            <div class="command-item" onclick="copyCommand('/tpa 玩家名称')">
+                <span class="cmd">/tpa 玩家名称</span>
+                <span class="desc">请求传送玩家</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+            <div class="command-item" onclick="copyCommand('/tpaccept')">
+                <span class="cmd">/tpaccept</span>
+                <span class="desc">同意传送</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+            <div class="command-item" onclick="copyCommand('/CO i')">
+                <span class="cmd">/CO i</span>
+                <span class="desc">查熊查偷</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+            <div class="command-item" onclick="copyCommand('/tps')">
+                <span class="cmd">/tps</span>
+                <span class="desc">查询当前区域卡顿</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+        </section>
+
+        <!-- 动作与交互指令 -->
+        <section class="mc-card fade-up fade-up-4">
+            <h2>💬 动作与交互指令</h2>
+            <div class="command-item" onclick="copyCommand('/m 名字 私聊内容')">
+                <span class="cmd">/m 名字 私聊内容</span>
+                <span class="desc">私聊玩家</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+        </section>
+
+        <!-- 系统与其他指令 -->
+        <section class="mc-card fade-up fade-up-4">
+            <h2>🎖️ 系统与其他指令</h2>
+            <div class="command-item" onclick="copyCommand('/plt open')">
+                <span class="cmd">/plt open</span>
+                <span class="desc">称号页面</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
+        </section>
+
+<!-- 新增合成表 -->
+<section class="mc-card fade-up fade-up-5">
+    <h2>🔧 新增合成表</h2>
+    <p>服务器新增了多种合成机制，丰富你的生存体验。请前往查询</p>
+    <div style="margin-top: 16px;">
+        <div class="alert-box info">
+            点击下方按钮跳转合成表文档查看全部内容
+            <br>
+            <a href="https://docs.qq.com/doc/DS05aTW5XdVZxWm1j" style="display:inline-block;margin-top:8px;padding:6px 14px;background:#2196F3;color:#fff;border-radius:4px;text-decoration:none;">查看完整合成表</a>
+        </div>
+    </div>
+</section>
+
+        <!-- 服务器说明 -->
+        <section class="mc-card fade-up fade-up-5">
+            <h2>📋 服务器说明</h2>
+            <ul class="mc-list">
+                <li>主服边界 15002 格</li>
+                <li>战利品箱子 24 小时刷新</li>
+                <li>1.8 - 26.3 多版本兼容</li>
+                <li>服务端版本：26.1</li>
+            </ul>
+            <div style="margin-top: 20px;">
+                <p style="margin-bottom: 12px;">想要定制专属称号？</p>
+                <a href="称号定制.html" class="mc-btn">✨ 查看称号定制</a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="mc-footer">
+        <p>STC Minecraft Server · 方块世界，无限可能</p>
+        <p style="margin-top: 8px; font-size: 14px;">© 2025 撕毯小镇 · 用心做好每一个服务器</p>
+    </footer>
+
+    <script>
+        function copyCommand(cmd) {
+            navigator.clipboard.writeText(cmd).then(function() {
+                alert('已复制：' + cmd);
+            }).catch(function() {
+                alert('复制失败，请手动复制');
+            });
+        }
+    </script>
+</body>
+</html>

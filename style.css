@@ -1,0 +1,789 @@
+/* ============================================================
+   STC Minecraft Server - 钻石蓝绿风格统一样式
+   ============================================================ */
+
+/* 引入字体 */
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+
+/* 重置与基础 */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+body {
+    overflow-wrap: break-word;
+    font-family: 'Noto Sans SC', system-ui, sans-serif;
+    background: hsl(210, 28%, 8%);
+    color: hsl(180, 15%, 92%);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* 背景层 */
+.mc-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: 
+        linear-gradient(hsla(175, 70%, 50%, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, hsla(175, 70%, 50%, 0.04) 1px, transparent 1px),
+        radial-gradient(ellipse at 20% 10%, hsla(175, 70%, 50%, 0.1), transparent 50%),
+        radial-gradient(ellipse at 80% 90%, hsla(265, 68%, 68%, 0.08), transparent 50%),
+        hsl(210, 28%, 8%);
+    background-size: 32px 32px, 32px 32px, 100% 100%, 100% 100%, 100% 100%;
+}
+
+/* 容器 */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================================
+   导航栏
+   ============================================================ */
+.mc-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: hsla(210, 28%, 10%, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid hsl(210, 18%, 26%);
+}
+
+.mc-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.mc-nav a {
+    display: inline-block;
+    padding: 8px 18px;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    color: hsl(210, 12%, 60%);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+    letter-spacing: 0.05em;
+}
+
+.mc-nav a:hover {
+    color: hsl(175, 70%, 65%);
+    background: hsla(175, 70%, 50%, 0.1);
+}
+
+.mc-nav a.active {
+    color: hsl(175, 70%, 50%);
+    background: hsla(175, 70%, 50%, 0.15);
+    box-shadow: inset 0 0 0 1px hsla(175, 70%, 50%, 0.3);
+}
+
+/* ============================================================
+   标题样式
+   ============================================================ */
+.pixel-title {
+    font-family: 'VT323', monospace;
+    letter-spacing: 0.08em;
+    text-shadow: 
+        2px 2px 0 hsla(175, 70%, 50%, 0.3),
+        4px 4px 0 hsla(0, 0%, 0%, 0.5);
+    color: hsl(175, 70%, 50%);
+}
+
+.page-header {
+    text-align: center;
+    padding: 60px 0 40px;
+}
+
+.page-header .subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: hsl(210, 12%, 60%);
+    letter-spacing: 0.2em;
+}
+
+.page-header h1 {
+    font-family: 'VT323', monospace;
+    font-size: clamp(40px, 8vw, 72px);
+    color: hsl(175, 70%, 50%);
+    letter-spacing: 0.08em;
+    text-shadow: 
+        2px 2px 0 hsla(175, 70%, 50%, 0.3),
+        4px 4px 0 hsla(0, 0%, 0%, 0.5);
+    margin-bottom: 12px;
+    line-height: 1.1;
+}
+
+.page-header .desc {
+    color: hsl(210, 12%, 60%);
+    font-size: 16px;
+    letter-spacing: 0.05em;
+}
+
+.pixel-divider {
+    width: 180px;
+    height: 4px;
+    margin: 24px auto 0;
+    background-image: linear-gradient(
+        90deg,
+        hsl(175, 70%, 50%) 0%,
+        hsl(175, 70%, 50%) 25%,
+        transparent 25%,
+        transparent 50%,
+        hsl(175, 70%, 50%) 50%,
+        hsl(175, 70%, 50%) 75%,
+        transparent 75%,
+        transparent 100%
+    );
+    background-size: 16px 4px;
+    opacity: 0.5;
+}
+
+/* ============================================================
+   卡片样式
+   ============================================================ */
+.mc-card {
+    background: hsl(210, 22%, 16%);
+    border: 2px solid hsl(210, 18%, 26%);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 24px;
+    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.mc-card:hover {
+    border-color: hsl(175, 70%, 50%);
+    box-shadow: 
+        0 12px 32px hsla(0, 0%, 0%, 0.35),
+        0 0 30px hsla(175, 70%, 50%, 0.2);
+    transform: translateY(-4px);
+}
+
+.mc-card h2 {
+    font-family: 'VT323', monospace;
+    font-size: 32px;
+    color: hsl(175, 70%, 50%);
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+}
+
+.mc-card h3 {
+    font-family: 'VT323', monospace;
+    font-size: 24px;
+    color: hsl(180, 15%, 92%);
+    margin-bottom: 10px;
+    letter-spacing: 0.03em;
+}
+
+.mc-card p {
+    color: hsl(210, 12%, 70%);
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+/* ============================================================
+   统计行
+   ============================================================ */
+.stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    padding: 24px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-family: 'VT323', monospace;
+    font-size: 42px;
+    color: hsl(180, 15%, 92%);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: hsl(210, 12%, 60%);
+    margin-top: 4px;
+}
+
+/* ============================================================
+   小镇卡片
+   ============================================================ */
+.town-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.town-card {
+    position: relative;
+    background: hsl(210, 22%, 16%);
+    border: 2px solid hsl(210, 18%, 26%);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 0.35s ease;
+    will-change: transform;
+    --card-accent: hsl(175, 70%, 50%);
+    --card-glow: hsla(175, 70%, 50%, 0.3);
+}
+
+.town-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 20px 40px hsla(0, 0%, 0%, 0.4),
+        0 0 30px var(--card-glow);
+    border-color: var(--card-accent);
+}
+
+/* 卡片封面 */
+.card-cover {
+    position: relative;
+    height: 160px;
+    overflow: hidden;
+}
+
+.card-cover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 8px;
+    background-image: linear-gradient(
+        90deg,
+        hsla(0, 0%, 0%, 0.25) 0%,
+        hsla(0, 0%, 0%, 0.25) 12.5%,
+        transparent 12.5%,
+        transparent 25%,
+        hsla(0, 0%, 0%, 0.15) 25%,
+        hsla(0, 0%, 0%, 0.15) 37.5%,
+        transparent 37.5%,
+        transparent 50%,
+        hsla(0, 0%, 0%, 0.25) 50%,
+        hsla(0, 0%, 0%, 0.25) 62.5%,
+        transparent 62.5%,
+        transparent 75%,
+        hsla(0, 0%, 0%, 0.15) 75%,
+        hsla(0, 0%, 0%, 0.15) 87.5%,
+        transparent 87.5%,
+        transparent 100%
+    );
+    background-size: 32px 8px;
+}
+
+/* 四种小镇封面 */
+.cover-dawn {
+    background: 
+        radial-gradient(circle at 80% 40%, hsla(48, 100%, 70%, 0.9) 0, hsla(48, 100%, 70%, 0.9) 10%, transparent 10%),
+        linear-gradient(180deg, #f4cf7a 0%, #ebb250 35%, #da8a2e 55%, #438c35 55%, #337226 100%);
+}
+
+.cover-blackstone {
+    background: 
+        radial-gradient(ellipse at 30% 80%, hsla(8, 90%, 55%, 0.6) 0, transparent 40%),
+        radial-gradient(ellipse at 70% 90%, hsla(25, 100%, 55%, 0.5) 0, transparent 35%),
+        linear-gradient(180deg, #242a37 0%, #1a232c 40%, #482c27 60%, #63322a 100%);
+}
+
+.cover-jade {
+    background: 
+        radial-gradient(circle at 25% 60%, hsla(45, 100%, 65%, 0.7) 0, transparent 8%),
+        radial-gradient(circle at 50% 55%, hsla(45, 100%, 65%, 0.5) 0, transparent 6%),
+        radial-gradient(circle at 75% 65%, hsla(45, 100%, 65%, 0.6) 0, transparent 7%),
+        linear-gradient(180deg, #41bdd6 0%, #2db7b7 40%, #269b74 55%, #1a7e59 100%);
+}
+
+.cover-moon {
+    background: 
+        radial-gradient(circle at 20% 25%, hsla(0, 0%, 100%, 0.9) 0, hsla(0, 0%, 100%, 0.9) 2px, transparent 2px),
+        radial-gradient(circle at 60% 15%, hsla(0, 0%, 100%, 0.8) 0, hsla(0, 0%, 100%, 0.8) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 85% 35%, hsla(0, 0%, 100%, 0.9) 0, hsla(0, 0%, 100%, 0.9) 2px, transparent 2px),
+        radial-gradient(circle at 40% 45%, hsla(265, 80%, 85%, 0.7) 0, hsla(265, 80%, 85%, 0.7) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 70% 50%, hsla(0, 0%, 100%, 0.6) 0, hsla(0, 0%, 100%, 0.6) 1px, transparent 1px),
+        radial-gradient(circle at 75% 30%, hsla(55, 90%, 85%, 0.95) 0, hsla(55, 90%, 85%, 0.95) 14px, transparent 14px),
+        linear-gradient(180deg, #321956 0%, #3b236b 40%, #593181 70%, #794095 100%);
+}
+
+/* 徽章 */
+.level-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    background: hsla(0, 0%, 0%, 0.55);
+    backdrop-filter: blur(4px);
+    border: 1px solid hsla(0, 0%, 100%, 0.2);
+    border-radius: 6px;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: hsl(45, 95%, 62%);
+    z-index: 2;
+}
+
+.residents-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 10px;
+    background: hsla(0, 0%, 0%, 0.55);
+    backdrop-filter: blur(4px);
+    border: 1px solid hsla(0, 0%, 100%, 0.2);
+    border-radius: 6px;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: hsl(180, 15%, 92%);
+    z-index: 2;
+}
+
+/* 卡片内容 */
+.town-card .card-body {
+    padding: 24px;
+}
+
+.town-card h3 {
+    font-family: 'VT323', monospace;
+    font-size: 36px;
+    margin-bottom: 12px;
+    letter-spacing: 0.03em;
+    color: var(--card-accent);
+}
+
+/* ============================================================
+   标签
+   ============================================================ */
+.mc-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 999px;
+    border: 1px solid;
+    letter-spacing: 0.02em;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+
+.mc-tag.green {
+    color: hsl(110, 50%, 55%);
+    border-color: hsla(110, 50%, 55%, 0.25);
+    background: hsla(110, 50%, 55%, 0.1);
+}
+
+.mc-tag.blue {
+    color: hsl(175, 70%, 55%);
+    border-color: hsla(175, 70%, 50%, 0.25);
+    background: hsla(175, 70%, 50%, 0.1);
+}
+
+.mc-tag.gold {
+    color: hsl(45, 95%, 62%);
+    border-color: hsla(45, 95%, 62%, 0.25);
+    background: hsla(45, 95%, 62%, 0.1);
+}
+
+.mc-tag.purple {
+    color: hsl(265, 68%, 68%);
+    border-color: hsla(265, 68%, 68%, 0.25);
+    background: hsla(265, 68%, 68%, 0.1);
+}
+
+.mc-tag.red {
+    color: hsl(8, 55%, 58%);
+    border-color: hsla(8, 55%, 48%, 0.25);
+    background: hsla(8, 55%, 48%, 0.1);
+}
+
+/* ============================================================
+   按钮
+   ============================================================ */
+.mc-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    letter-spacing: 0.08em;
+    color: hsl(210, 28%, 8%);
+    background: hsl(175, 70%, 50%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    overflow: hidden;
+}
+
+.mc-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.35), transparent);
+    transition: left 0.5s ease;
+}
+
+.mc-btn:hover::before {
+    left: 100%;
+}
+
+.mc-btn:hover {
+    background: hsl(175, 75%, 58%);
+    box-shadow: 0 0 20px hsla(175, 70%, 50%, 0.5);
+    transform: translateY(-1px);
+}
+
+.mc-btn:active {
+    transform: translateY(1px);
+}
+
+.mc-btn.secondary {
+    background: hsl(210, 18%, 26%);
+    color: hsl(180, 15%, 92%);
+}
+
+.mc-btn.secondary:hover {
+    background: hsl(210, 18%, 32%);
+    box-shadow: 0 0 20px hsla(210, 18%, 26%, 0.5);
+}
+
+.mc-btn.gold {
+    background: hsl(45, 95%, 62%);
+    color: hsl(210, 28%, 8%);
+}
+
+.mc-btn.gold:hover {
+    background: hsl(45, 98%, 68%);
+    box-shadow: 0 0 20px hsla(45, 95%, 62%, 0.5);
+}
+
+/* ============================================================
+   列表
+   ============================================================ */
+.mc-list {
+    list-style: none;
+    padding: 0;
+}
+
+.mc-list li {
+    position: relative;
+    padding: 8px 0 8px 20px;
+    color: hsl(210, 12%, 75%);
+    line-height: 1.7;
+}
+
+.mc-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 8px;
+    height: 8px;
+    background: hsl(175, 70%, 50%);
+    border-radius: 2px;
+}
+
+/* ============================================================
+   代码块 / 指令
+   ============================================================ */
+.mc-code {
+    background: hsl(210, 25%, 10%);
+    border: 1px solid hsl(210, 18%, 26%);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    color: hsl(120, 60%, 60%);
+    letter-spacing: 0.03em;
+    margin: 12px 0;
+    overflow-x: auto;
+}
+
+.command-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: hsl(210, 25%, 12%);
+    border: 1px solid hsl(210, 18%, 26%);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.command-item:hover {
+    border-color: hsl(175, 70%, 50%);
+    background: hsl(210, 22%, 16%);
+}
+
+.command-item .cmd {
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    color: hsl(120, 60%, 60%);
+}
+
+.command-item .desc {
+    color: hsl(210, 12%, 60%);
+    font-size: 14px;
+}
+
+.command-item .copy-hint {
+    font-size: 12px;
+    color: hsl(210, 12%, 50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.command-item:hover .copy-hint {
+    opacity: 1;
+}
+
+/* ============================================================
+   价格卡片
+   ============================================================ */
+.price-card {
+    text-align: center;
+}
+
+.price-card .price {
+    font-family: 'VT323', monospace;
+    font-size: 56px;
+    color: hsl(45, 95%, 62%);
+    margin: 16px 0;
+    line-height: 1;
+    text-shadow: 0 0 20px hsla(45, 95%, 62%, 0.3);
+}
+
+/* ============================================================
+   步骤
+   ============================================================ */
+.step-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'VT323', monospace;
+    font-size: 28px;
+    color: hsl(210, 28%, 8%);
+    background: hsl(175, 70%, 50%);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px hsla(175, 70%, 50%, 0.3);
+}
+
+.step-item h3 {
+    font-family: 'VT323', monospace;
+    font-size: 24px;
+    color: hsl(180, 15%, 92%);
+    margin-bottom: 6px;
+}
+
+.step-item p {
+    color: hsl(210, 12%, 65%);
+    font-size: 15px;
+}
+
+/* ============================================================
+   目录链接
+   ============================================================ */
+.toc-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.toc-links a {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: hsl(175, 70%, 60%);
+    background: hsla(175, 70%, 50%, 0.1);
+    border: 1px solid hsla(175, 70%, 50%, 0.2);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.toc-links a:hover {
+    background: hsla(175, 70%, 50%, 0.2);
+    border-color: hsla(175, 70%, 50%, 0.4);
+    transform: translateY(-1px);
+}
+
+/* ============================================================
+   信息网格
+   ============================================================ */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.info-box {
+    background: hsla(210, 20%, 20%, 0.6);
+    border-radius: 8px;
+    padding: 14px;
+    border-left: 3px solid hsl(175, 70%, 50%);
+}
+
+.info-box .label {
+    font-size: 12px;
+    color: hsl(210, 12%, 60%);
+    margin-bottom: 4px;
+}
+
+.info-box .value {
+    font-size: 15px;
+    color: hsl(180, 15%, 92%);
+    font-weight: 500;
+}
+
+/* ============================================================
+   警告/提示框
+   ============================================================ */
+.alert-box {
+    padding: 16px 20px;
+    border-radius: 8px;
+    border-left: 4px solid;
+    margin: 16px 0;
+}
+
+.alert-box.warning {
+    background: hsla(45, 95%, 62%, 0.1);
+    border-color: hsl(45, 95%, 62%);
+}
+
+.alert-box.danger {
+    background: hsla(8, 70%, 55%, 0.1);
+    border-color: hsl(8, 70%, 55%);
+}
+
+.alert-box.info {
+    background: hsla(175, 70%, 50%, 0.1);
+    border-color: hsl(175, 70%, 50%);
+}
+
+/* ============================================================
+   页脚
+   ============================================================ */
+.mc-footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: hsl(210, 12%, 50%);
+    font-size: 14px;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+}
+
+/* ============================================================
+   淡入动画
+   ============================================================ */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-up {
+    opacity: 0;
+    animation: fadeUp 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.fade-up-1 { animation-delay: 0.1s; }
+.fade-up-2 { animation-delay: 0.2s; }
+.fade-up-3 { animation-delay: 0.3s; }
+.fade-up-4 { animation-delay: 0.4s; }
+.fade-up-5 { animation-delay: 0.5s; }
+
+/* ============================================================
+   响应式
+   ============================================================ */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 40px 0 30px;
+    }
+    
+    .page-header h1 {
+        font-size: 40px;
+    }
+    
+    .mc-card {
+        padding: 20px;
+    }
+    
+    .card-cover {
+        height: 140px;
+    }
+    
+    .town-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-row {
+        gap: 24px;
+    }
+    
+    .stat-number {
+        font-size: 32px;
+    }
+    
+    .mc-nav ul {
+        gap: 4px;
+        padding: 10px 12px;
+    }
+    
+    .mc-nav a {
+        padding: 6px 12px;
+        font-size: 17px;
+    }
+}
