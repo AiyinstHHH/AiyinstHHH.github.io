@@ -226,6 +226,11 @@
                             <div class="label">镇长qq</div>
                             <div class="value">暂未招人</div>
                         </div>
+                    </div>
+                    <button class="mc-btn" style="background: hsl(38, 92%, 60%); color: hsl(210, 28%, 8%); width: 100%; margin-top: 8px;">
+                        加入小镇
+                    </button>
+                </div>
             </article>
             <article class="town-card fade-up fade-up-2" style="--card-accent: hsl(38, 92%, 60%); --card-glow: hsla(38, 92%, 60%, 0.35);">
                 <div class="card-cover cover-dawn">
@@ -253,6 +258,11 @@
                             <div class="label">镇长qq</div>
                             <div class="value">暂未招人</div>
                         </div>
+                    </div>
+                    <button class="mc-btn" style="background: hsl(38, 92%, 60%); color: hsl(210, 28%, 8%); width: 100%; margin-top: 8px;">
+                        加入小镇
+                    </button>
+                </div>
             </article>
             <article class="town-card fade-up fade-up-4" style="--card-accent: hsl(158, 65%, 50%); --card-glow: hsla(158, 65%, 45%, 0.35);">
                 <div class="card-cover cover-jade">
@@ -329,7 +339,7 @@
             display: block;
             animation: fadeIn 0.2s ease-out;
         }
-        /* 核心修改：弹窗卡片固定屏幕居中，不受页面滚动、父容器影响 */
+        /* 弹窗固定屏幕居中 */
         .modal-card {
             position: fixed;
             top: 50%;
@@ -452,13 +462,15 @@
     </style>
     <!-- 弹窗交互脚本 -->
     <script>
-        // 修复小镇名称错误：岩玫镇，QQ号修正
+        // 修复逗号语法错误，补齐所有小镇映射
         const townQQ = {
             '远方足迹': '1934141291',
             '天青镇': '1695077469',
             '十三区': '3510450559',
             '岩玫镇': '2752501034',
-            '比奇堡': '2581292129'
+            '比奇堡': '2581292129',
+            '晨昏线': '暂未招人',
+            '袭击小镇': '暂未招人',
             '伊甸园': '936851872'
         };
         // 打开弹窗
@@ -475,14 +487,12 @@
         }
         // 关闭弹窗
         function closeModal(event) {
-            // 如果是点击遮罩层才关闭
             if (event && event.target !== event.currentTarget) return;
             
             const modal = document.getElementById('joinModal');
             modal.classList.remove('active');
             document.body.style.overflow = '';
             
-            // 重置复制按钮状态
             const copyBtn = document.querySelector('.copy-btn');
             copyBtn.textContent = '📋 复制 QQ 号';
             copyBtn.classList.remove('copied');
@@ -491,46 +501,48 @@
         function copyQQ() {
             const qqNumber = document.getElementById('modalQQNumber').textContent;
             const copyBtn = document.querySelector('.copy-btn');
+
+            if(qqNumber === "暂未招人"){
+                copyBtn.textContent = "❌ 暂无QQ";
+                setTimeout(()=>{
+                    copyBtn.textContent = '📋 复制 QQ 号';
+                },1500)
+                return;
+            }
             
             navigator.clipboard.writeText(qqNumber).then(() => {
                 copyBtn.textContent = '✅ 已复制';
                 copyBtn.classList.add('copied');
-                
                 setTimeout(() => {
                     copyBtn.textContent = '📋 复制 QQ 号';
                     copyBtn.classList.remove('copied');
                 }, 2000);
             }).catch(() => {
-                // 降级方案
                 const textarea = document.createElement('textarea');
                 textarea.value = qqNumber;
                 document.body.appendChild(textarea);
                 textarea.select();
                 document.execCommand('copy');
                 document.body.removeChild(textarea);
-                
                 copyBtn.textContent = '✅ 已复制';
                 copyBtn.classList.add('copied');
-                
                 setTimeout(() => {
                     copyBtn.textContent = '📋 复制 QQ 号';
                     copyBtn.classList.remove('copied');
                 }, 2000);
             });
         }
-        // 给所有加入小镇按钮绑定点击事件
+        // 绑定按钮点击事件
         document.addEventListener('DOMContentLoaded', function() {
             const buttons = document.querySelectorAll('.town-card .mc-btn');
-            
-            buttons.forEach((btn, index) => {
+            buttons.forEach((btn) => {
                 const townCard = btn.closest('.town-card');
                 const townName = townCard.querySelector('h3').textContent;
-                
                 btn.addEventListener('click', function() {
                     openModal(townName);
                 });
             });
-            // ESC键关闭弹窗
+            // ESC关闭弹窗
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     closeModal();
