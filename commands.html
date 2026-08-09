@@ -52,17 +52,17 @@
                 <span class="copy-hint">点击复制</span>
             </div>
             <div class="command-item" onclick="copyCommand('/sethome')">
-                <span class="cmd">/sethome</span>
+                <span class="cmd">/sethome+（家的名字）</span>
                 <span class="desc">设置家</span>
                 <span class="copy-hint">点击复制</span>
             </div>
             <div class="command-item" onclick="copyCommand('/dethome')">
-                <span class="cmd">/dethome</span>
+                <span class="cmd">/dethome+（家的名字）</span>
                 <span class="desc">删除家</span>
                 <span class="copy-hint">点击复制</span>
             </div>
             <div class="command-item" onclick="copyCommand('/home')">
-                <span class="cmd">/home</span>
+                <span class="cmd">/home+（家的名字）</span>
                 <span class="desc">回家</span>
                 <span class="copy-hint">点击复制</span>
             </div>
@@ -70,6 +70,12 @@
                 <span class="cmd">/suicide</span>
                 <span class="desc">自杀</span>
                 <span class="copy-hint">点击复制</span>
+            </div>
+                <div class="command-item" onclick="copyCommand('/suicide')">
+                <span class="cmd">/warp+（传送点名字）</span>
+                <span class="desc">前往服务器公共传送点</span>
+                <span class="copy-hint">点击复制</span>
+            </div>
             </div>
         </section>
 
@@ -87,7 +93,7 @@
                 <span class="copy-hint">点击复制</span>
             </div>
             <div class="command-item" onclick="copyCommand('/tpa 玩家名称')">
-                <span class="cmd">/tpa 玩家名称</span>
+                <span class="cmd">/tpa+玩家名称</span>
                 <span class="desc">请求传送玩家</span>
                 <span class="copy-hint">点击复制</span>
             </div>
